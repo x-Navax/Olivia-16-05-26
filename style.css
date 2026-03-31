@@ -1,0 +1,435 @@
+@import url('https://fonts.googleapis.com/css2?family=Handlee&family=Shadows+Into+Light&display=swap');
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+  text-align: center;
+}
+
+/* Header */
+
+.nombres{
+    width: 100%;
+    height: auto;
+    margin-bottom: -5px;
+}
+
+/* ============================= */
+/*          INICIO CONTADOR      */
+/* ============================= */
+
+:root {
+  --circle-size: 4.5rem;      /* tamaño del círculo */
+  --ring-width: 4px;          /* grosor del borde */
+  --number-size: 1.8rem;      /* tamaño del número */
+}
+
+.contador {
+  background-color: #ffffff;
+  padding: 40px 0 20px 0;
+  overflow-x: hidden; /* evita que se salgan */
+}
+
+.contador p {
+  font-family: "Handlee", cursive;
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  text-align: center;
+ background: linear-gradient(90deg, #5e5e5e, #999797);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.time_circles {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-family: "Handlee", cursive;
+  margin-top: -20px;
+
+}
+.time_circles div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+/* CÍRCULO ELEGANTE */
+.time_circles span.number {
+  width: var(--circle-size);
+  height: var(--circle-size);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--number-size);
+  font-weight: bold;
+  color: rgb(109, 102, 102);
+
+  background: white;
+  border: var(--ring-width) solid transparent;
+  background-image: 
+    linear-gradient(white, white), 
+    linear-gradient(135deg, #f178d1, #ff89ce);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+
+  box-shadow:
+    0 6px 15px rgba(0, 113, 252, 0.25),
+    0 2px 6px rgba(0,0,0,0.08);
+}
+
+.time_circles span.text {
+  margin-top: 0.6rem;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+ background: linear-gradient(90deg, #727272, #b8b5b5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.mensaje {
+  text-align: center;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2.5rem;
+  color: #ff3b3b;
+}
+
+/* ============================= */
+/*            FIN CONTADOR       */
+/* ============================= */
+
+/* FIESTA */
+.fiesta {
+  background-image: url(./imagenes/fondo4.jpeg);
+  color: #976a6d;
+  font-family: "Handlee", cursive;
+  margin-top: 30px;
+  margin-bottom: 30PX;
+  padding-bottom: 20px;
+  
+}
+
+.copa {
+  width: 5rem;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+
+/* ===== GALA SILVER GLASS ===== */
+
+
+
+.galeria {
+  padding: 60px 20px;
+  text-align: center;
+  font-family: "Playfair Display", serif;
+}
+
+.titulo-galeria {
+  font-size: 2.8rem;
+  margin-bottom: 40px;
+  color: #976a6d;
+  letter-spacing: 4px;
+}
+
+/* Galería compacta */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.gallery img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 18px;
+  cursor: pointer;
+  transition: 0.4s ease;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 10px 30px rgba(255,255,255,0.05);
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(255,255,255,0.15);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ===== LIGHTBOX GLASS ===== */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(12px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+
+  border-radius: 25px;
+  padding: 30px;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 0 60px rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-img {
+  max-width: 70vw;
+  max-height: 70vh;
+  border-radius: 18px;
+  animation: fadeZoom 0.4s ease;
+}
+
+/* Botones */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  border: none;
+  font-size: 30px;
+  color: white;
+  padding: 10px 16px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+
+.prev { left: -60px; }
+.next { right: -60px; }
+
+.close {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  font-size: 30px;
+
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+}
+
+@keyframes fadeZoom {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* REGALOS */
+.regalos {
+ background-image: url(./imagenes/fondo4.jpeg);
+ color: #976a6d;
+   padding: 40px 0 20px 0;
+  font-family: "Handlee", cursive;
+  margin-top: 30px;
+  text-align: center;
+  align-items: center;
+}
+
+.regalo{
+   width: 5rem;
+  margin-bottom: 20px;
+}
+
+.centrado{ margin-left: 20px;
+  margin-right: 20px;
+}
+
+/* INSTAGRAM */
+.INSTA {
+  font-family: "Handlee", cursive;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.vestimenta {
+  font-size: 1.2rem;
+  color: #976a6d;
+   padding: 40px 0 20px 0;
+  font-family: "Handlee", cursive;
+}
+.pareja{
+     width: 5rem;
+  margin-bottom: 20px;
+}
+
+/* BOTONES */
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 28px;
+  background: #976a6d;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 14px;
+  font-family: "Handlee", cursive;
+}
+
+.btn.white {
+  background: #fff;
+  color: #976a6d;
+}
+
+.whatsapp-section {
+  max-width: 500px;
+  margin: 60px auto;
+  padding: 20px;
+  text-align: center;
+  font-family: "Handlee", cursive;
+}
+
+.whatsapp-section h2 {
+  margin-bottom: 25px;
+  font-size: 22px;
+    color: #976a6d;
+}
+
+/* GRID */
+.whatsapp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+/* BOTONES */
+.btn-wsp {
+  padding: 15px 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.btn-wsp:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* COLORES */
+.btn-wsp.novio {
+  background-color: #25D366;
+}
+
+.btn-wsp.novia {
+  background-color: #25D366;
+  background-color: #128C7E;
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+  .whatsapp-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+footer{
+    background-color: #976a6d;
+    color: rgb(255, 255, 255);
+    margin-top: 30px;
+    width: 100%;
+}
+
+footer a span {
+  color: #ffffff;
+  text-decoration: none; /* también sirve acá */
+}
+
+footer span:hover {
+  color: purple; /* opcional: cambia al pasar el mouse */
+}
+footer a:hover {
+  color: purple; /* opcional: cambia al pasar el mouse */
+}
+
+
+.logoInsta {
+    width: 1.3rem;
+    color: white;
+}
+footer span img{
+  color: white;
+}
+.scroll-boda {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.scroll-boda.hide {
+  opacity: 0;
+  transform: translateX(-50%) translateY(15px);
+  pointer-events: none;
+}
+
+.scroll-boda span {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.9);
+  border-right: 2px solid rgba(0, 0, 0, 0.9);
+  transform: rotate(45deg);
+  margin: -4px;
+  animation: flechaBoda 1.6s infinite;
+}
+
+.scroll-boda span:nth-child(2) {
+  animation-delay: 0.25s;
+  opacity: 0.6;
+}
+
+@keyframes flechaBoda {
+  0% {
+    opacity: 0;
+    transform: rotate(45deg) translate(-6px, -6px);
+  }
+  50% { opacity: 1; }
+  100% {
+    opacity: 0;
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+}
