@@ -31,14 +31,30 @@ var intervalo = setInterval(function () {
 
 document.addEventListener("DOMContentLoaded", () => {
   const boton = document.getElementById("copyAlias");
-  const alias = "joibas"; // ESCRIBÍ TU ALIAS ACÁ
+  const alias = "olisosa15"; // ESCRIBÍ TU ALIAS ACÁ
 
   boton.addEventListener("click", () => {
     navigator.clipboard.writeText(alias).then(() => {
       boton.textContent = "ALIAS COPIADO ✔";
       
       setTimeout(() => {
-        boton.textContent = "COPIAR ALIAS";
+        boton.textContent = "COPIAR ALIAS PESOS";
+      }, 2000);
+    }).catch(() => {
+      alert("No se pudo copiar el alias");
+    });
+  });
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const boton = document.getElementById("copyAliasUSD");
+  const aliasUSD = "CIUDAD.ROMERO.GIRO"; // ESCRIBÍ TU ALIAS ACÁ
+
+  boton.addEventListener("click", () => {
+    navigator.clipboard.writeText(aliasUSD).then(() => {
+      boton.textContent = "ALIAS COPIADO ✔";
+      
+      setTimeout(() => {
+        boton.textContent = "COPIAR ALIAS USD";
       }, 2000);
     }).catch(() => {
       alert("No se pudo copiar el alias");
